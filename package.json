@@ -1,0 +1,89 @@
+{
+  "name": "aon-tf-models",
+  "version": "1.0.0",
+  "description": "AON Tensforflow models",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "private": true,
+  "author": {
+    "name": "Robby",
+    "email": "ta7382@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/explooosion/AON-TF-Models.git"
+  },
+  "scripts": {
+    "train": "babel-node src/",
+    "test": "babel-node test/",
+    "prepublish": "npm run build",
+    "build": "babel src -d lib"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.6",
+    "@babel/node": "^7.8.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/preset-env": "^7.8.6",
+    "@babel/register": "^7.8.6",
+    "@tensorflow-models/knn-classifier": "^1.2.2",
+    "@tensorflow-models/mobilenet": "^2.0.4",
+    "@tensorflow/tfjs": "^2.7.0",
+    "babel-plugin-istanbul": "^5.2.0",
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.20.1",
+    "mocha": "^6.2.2",
+    "nyc": "^14.1.1"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^2.7.0",
+    "core-js": "^3.6.4"
+  },
+  "engines": {
+    "node": ">=6.1.0",
+    "npm": ">=3.8.6"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "6.1.0"
+          },
+          "corejs": "3",
+          "useBuiltIns": "usage"
+        }
+      ]
+    ],
+    "plugins": [
+      [
+        "@babel/plugin-proposal-object-rest-spread",
+        {
+          "useBuiltIns": true
+        }
+      ]
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ],
+        "presets": [
+          [
+            "@babel/preset-env"
+          ]
+        ]
+      }
+    }
+  },
+  "nyc": {
+    "require": [
+      "@babel/register"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  }
+}
